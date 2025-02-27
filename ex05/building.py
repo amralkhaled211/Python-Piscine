@@ -16,20 +16,23 @@ def main():
     """
     Main function to count the number of upper case letters, lower case letters, punctuation marks, spaces and digits in a given text.
     """
-    if len(sys.argv) == 1:
-        text = "Hello World! "
-    elif len(sys.argv) == 2:
-        text = sys.argv[1]
-    else:
-        raise AssertionError("More than one argument provided")
+    try:
+        if len(sys.argv) == 1:
+            text = "Hello World! "
+        elif len(sys.argv) == 2:
+            text = sys.argv[1]
+        else:
+            raise AssertionError("More than one argument provided")
 
-    upper, lower, punctuation, spaces, digits = count_characters(text)
-    print(f"The text contains {len(text)} characters:")
-    print(f"{upper} upper letters")
-    print(f"{lower} lower letters")
-    print(f"{punctuation} punctuation marks")
-    print(f"{spaces} spaces")
-    print(f"{digits} digits")
+        upper, lower, punctuation, spaces, digits = count_characters(text)
+        print(f"The text contains {len(text)} characters:")
+        print(f"{upper} upper letters")
+        print(f"{lower} lower letters")
+        print(f"{punctuation} punctuation marks")
+        print(f"{spaces} spaces")
+        print(f"{digits} digits")
+    except AssertionError as e:
+        print(e)
 
 if __name__ == "__main__":
     main()
